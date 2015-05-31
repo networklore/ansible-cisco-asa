@@ -1,0 +1,13 @@
+---
+-  hosts: all
+   connection: local
+   gather_facts: no
+
+
+   tasks:
+     - name: Save the configuration
+       cisco_asa_write_mem:
+         host={{ inventory_hostname }}
+         username=api_user
+         password=APIpass123
+         validate_certs=no

@@ -1,0 +1,53 @@
+---
+-  hosts: all
+   connection: local
+   gather_facts: no
+
+
+   tasks: 
+     - name: Remove temp object
+       cisco_asa_service_object:
+         host={{ inventory_hostname }}
+         username=api_user
+         password=APIpass123
+         name=OS-TEMP
+         state=absent
+         protocol=6
+         validate_certs=no
+
+     - name: Create object EIGRP
+       cisco_asa_service_object:
+         host={{ inventory_hostname }}
+         username=api_user
+         password=APIpass123
+         name=OS-EIGRP
+         state=present
+         protocol=88
+         description='EIGRP'
+         validate_certs=no
+
+     - name: Create object HTTP
+       cisco_asa_service_object:
+         host={{ inventory_hostname }}
+         username=api_user
+         password=APIpass123
+         name=OS-HTTP
+         state=present
+         protocol=tcp
+         dst_port=http
+         description='HTTP'
+         validate_certs=no
+
+
+     - name: Create object IPSEC Over TCP
+       cisco_asa_service_object:
+         host={{ inventory_hostname }}
+         username=api_user
+         password=APIpass123
+         name=OS-IPSEC-Over-TCP
+         state=present
+         protocol=tcp
+         dst_port=10000
+         description='IPSec over TCP'
+         validate_certs=no
+

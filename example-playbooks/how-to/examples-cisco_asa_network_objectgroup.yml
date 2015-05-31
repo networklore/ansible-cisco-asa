@@ -1,0 +1,89 @@
+---
+-  hosts: all
+   connection: local
+   gather_facts: no
+
+
+   tasks: 
+     - name: Remove test object
+       cisco_asa_network_objectgroup:
+         host={{ inventory_hostname }}
+         username=api_user
+         password=APIpass123
+         name=NET-REMOVE
+         state=absent
+         validate_certs=no
+
+     - name: Create entry for monitored server 10.80.30.18
+       cisco_asa_network_objectgroup:
+         host={{ inventory_hostname }}
+         description='Managed by Ansible3'
+         username=api_user
+         password=APIpass123
+         name=OG-MONITORED-SERVERS
+         state=present
+         entry_state=present
+         category=ipv4_address
+         value='10.80.30.18'
+         validate_certs=no
+
+     - name: Create entry for monitored server 10.80.30.19
+       cisco_asa_network_objectgroup:
+         host={{ inventory_hostname }}
+         username=api_user
+         password=APIpass123
+         name=OG-MONITORED-SERVERS
+         state=present
+         entry_state=present
+         category=ipv4_address
+         value='10.80.30.19'
+         validate_certs=no
+
+     - name: Remote entry for monitored server 10.80.30.20
+       cisco_asa_network_objectgroup:
+         host={{ inventory_hostname }}
+         username=api_user
+         password=APIpass123
+         name=OG-MONITORED-SERVERS
+         state=present
+         entry_state=present
+         category=ipv4_address
+         value='10.80.30.20'
+         validate_certs=no
+
+     - name: Create entry for monitored network 172.16.10.0/24
+       cisco_asa_network_objectgroup:
+         host={{ inventory_hostname }}
+         username=api_user
+         password=APIpass123
+         name=OG-MONITORED-SERVERS
+         state=present
+         entry_state=present
+         category=ipv4_subnet
+         value='172.16.10.0/24'
+         validate_certs=no
+
+     - name: Create entry for NET-A
+       cisco_asa_network_objectgroup:
+         host={{ inventory_hostname }}
+         username=api_user
+         password=APIpass123
+         name=OG-MONITORED-SERVERS
+         state=present
+         entry_state=present
+         category=object_group
+         value='NET-A'
+         validate_certs=no
+
+     - name: Create entry for first_test
+       cisco_asa_network_objectgroup:
+         host={{ inventory_hostname }}
+         username=api_user
+         password=APIpass123
+         description='Managed by Ansible3'
+         name=OG-MONITORED-SERVERS
+         state=present
+         entry_state=present
+         category=object
+         value='first_test'
+         validate_certs=no

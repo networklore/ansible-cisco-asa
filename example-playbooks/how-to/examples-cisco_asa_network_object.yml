@@ -1,0 +1,47 @@
+---
+-  hosts: all
+   connection: local
+   gather_facts: no
+
+
+   tasks: 
+     - name: Create object for SALES network
+       cisco_asa_network_object:
+         host={{ inventory_hostname }}
+         username=api_user
+         password=APIpass123
+         name=NET-SALES-4
+         state=present
+         category=ipv4_subnet
+         description='Sales network building 4'
+         value='10.12.30.0/24'
+         validate_certs=no
+
+     - name: Create object for database server
+       cisco_asa_network_object:
+         host={{ inventory_hostname }}
+         username=api_user
+         password=APIpass123
+         name=srv-db-1
+         state=present
+         category=ipv4_address
+         value='10.12.40.12'
+         validate_certs=no
+
+     - name: Remove object for test database server
+       cisco_asa_network_object:
+         host={{ inventory_hostname }}
+         username=api_user
+         password=APIpass123
+         name=tsrv-db-1
+         state=absent
+         validate_certs=no
+
+     - name: Save the configuration
+       cisco_asa_write_mem:
+         host={{ inventory_hostname }}
+         username=api_user
+         password=APIpass123
+         validate_certs=no
+
+
