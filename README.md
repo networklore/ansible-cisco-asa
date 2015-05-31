@@ -12,7 +12,7 @@ Currently this is only a test and there's a good chance that a lot of the code w
 
 These modules requires:
 
-* [rasa](https://github.com/networklore/rasa)
+* [rasa](https://github.com/networklore/rasa) 0.0.3 or later
 * An ASA firewall running 9.3 or later
 
 ## Installation of Ansible module
