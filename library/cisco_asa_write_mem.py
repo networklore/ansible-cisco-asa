@@ -19,6 +19,7 @@ DOCUMENTATION = '''
 
 module: cisco_asa_write_mem
 author: Patrick Ogenstad (@networklore)
+version: 1.0
 short_description: Saves the configuration.
 description:
     - Issues the write mem command on the unit

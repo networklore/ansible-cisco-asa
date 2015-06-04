@@ -19,6 +19,7 @@ DOCUMENTATION = '''
 
 module: cisco_asa_network_objectgroup
 author: Patrick Ogenstad (@networklore)
+version: 1.0
 short_description: Creates deletes or edits network object-groups.
 description:
     - Configures network object-groups

@@ -19,6 +19,7 @@ DOCUMENTATION = '''
 
 module: cisco_asa_network_object
 author: Patrick Ogenstad (@networklore)
+version: 1.0
 short_description: Creates deletes or edits network objects.
 description:
     - Configures network objects
