@@ -12,8 +12,15 @@ Currently this is only a test and there's a good chance that a lot of the code w
 
 These modules requires:
 
-* [rasa](https://github.com/networklore/rasa) 0.0.3 or later
+* [rasa](https://github.com/networklore/rasa) 0.0.5 or later
 * An ASA firewall running 9.3 or later
+
+## Current modules
+
+* cisco_asa_ikev1_policy
+* cisco_asa_network_object
+* cisco_asa_network_objectgroup
+* cisco_asa_write_mem
 
 ## Installation of Ansible module
 ```

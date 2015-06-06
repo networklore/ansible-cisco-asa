@@ -1,0 +1,58 @@
+---
+-  hosts: all
+   connection: local
+   gather_facts: no
+
+   tasks: 
+     - name: Remove policy 50
+       cisco_asa_ikev1_policy:
+         host={{ inventory_hostname }}
+         username=api_user
+         password=APIpass123
+         state=absent
+         priority=50
+         validate_certs=no
+
+     - name: Create ikev1 300
+       cisco_asa_ikev1_policy:
+         host={{ inventory_hostname }}
+         username=api_user
+         password=APIpass123
+         state=present
+         priority=300
+         authentication=pre-share
+         encryption=aes-256
+         hash=sha
+         group=5
+         lifetime=28800
+         validate_certs=no
+
+
+     - name: Create ikev1 500
+       cisco_asa_ikev1_policy:
+         host={{ inventory_hostname }}
+         username=api_user
+         password=APIpass123
+         state=present
+         priority=500
+         authentication=pre-share
+         encryption=aes-192
+         hash=sha
+         group=2
+         lifetime=28800
+         validate_certs=no
+
+     - name: Create ikev1 700
+       cisco_asa_ikev1_policy:
+         host={{ inventory_hostname }}
+         username=api_user
+         password=APIpass123
+         state=present
+         priority=700
+         authentication=pre-share
+         encryption=3des
+         hash=md5
+         group=2
+         lifetime=28800
+         validate_certs=no
+
